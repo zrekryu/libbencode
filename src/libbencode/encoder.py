@@ -86,6 +86,8 @@ class Encoder:
                 encoded_list += cls.encode_bytes(item)
             elif isinstance(item, str):
                 encoded_list += cls.encode_str(item)
+            elif isinstance(item, list):
+                encoded_list += cls.encode_list(item)
             elif isinstance(item, dict):
                 encoded_list += cls.encode_dict(item)
             else:
