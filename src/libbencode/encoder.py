@@ -56,7 +56,8 @@ class Encoder:
             >>> Encoder.encode_str("spam")
             b'4:spam'
         """
-        return f"{len(data)}:{data}".encode("utf-8")
+        encoded_data: bytes = data.encode("utf-8")
+        return f"{len(encoded_data)}:".encode("utf-8") + encoded_data
     
     @classmethod
     def encode_list(cls: type[Self], data: list[int | bytes | str | list | dict | bool]) -> bytes:
